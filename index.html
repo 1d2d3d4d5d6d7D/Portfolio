@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dmitriy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<div class="float-cloud">
+  <span>JS</span>
+  <span>HTML5</span>
+  <span>REACT</span>
+  <span>CSS</span>
+  <span>VUE</span>
+  <span>FIGMA</span>
+</div>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .float-cloud {
+    position: static;
+    height: 100%;
+  }
+
+  .float-cloud span {
+    position: absolute;
+    font-size: 38px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #8cff00;
+    opacity: 0.9;
+    animation: float 5s ease-in-out infinite alternate;
+  }
+
+  .float-cloud span:nth-child(1) { top: 12%; left: 8%; animation-delay: 0s; }
+  .float-cloud span:nth-child(2) { top: 11%; right: 8%; animation-delay: .5s; }
+  .float-cloud span:nth-child(3) { bottom: 68%; left: 11; animation-delay: 1s; }
+  .float-cloud span:nth-child(4) { bottom: 68%; right: 15%; animation-delay: 1.5s; }
+  .float-cloud span:nth-child(5) { top: 48%; left: 6%; animation-delay: 2s; }
+  .float-cloud span:nth-child(6) { top: 46%; right: 6%; animation-delay: 2.5s; }
+
+  @keyframes float {
+    from { transform: translateY(0) translateX(0); }
+    to   { transform: translateY(-15px) translateX(10px); }
+  }
+</style>
+<body>
+       <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
+    <div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+    <div class="container">
+        <img src="T1.jpg" alt="Image" class="rounded-image">
+        <h1>Дмитрий Зарубенко</h1>
+        <div class="subtitle">Веб-разработчик</div>
+        
+        <p>Привет! Меня зовут Дмитрий, мне 24 года и я занимаюсь созданием сайтов и лендингов.</p>
+
+        <p>Я не так уж и давно стал погружаться в IT сферу, примерно год назад.
+        </p>
+        
+        <p>За это время уже успел 
+            набраться опыта в комерческой компании AntHill и выполнить успешно первые свои заказы.
+           </p>
+
+           <p> Очень хочу и далше продолжать обучаться и покарять новые высоты в мире IT!</p>
+        <div class="bg"></div>
+        <div class="links">
+            <a href="">VK</a>
+            <a href="https://github.com/1d2d3d4d5d6d7D">GitHub</a>
+            <a href="">Email</a>
+            <a href="https://t.me/BUGULMEK_0">Telegram</a>
+        </div>
+    </div>
+</script>
+</body>
+</html>
+
+<!-- Эксперемаенталь -->
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-animation 1s ease-out forwards;
+        }
+
+        @keyframes particle-animation {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('click', function(e) {
+            createParticles(e.clientX, e.clientY);
+        });
+
+        function createParticles(x, y) {
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 50 + 30;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                
+                const delay = Math.random() * 0.2;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                particle.style.animationDelay = delay + 's';
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 1000 + delay * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
